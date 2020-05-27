@@ -10,15 +10,15 @@
          </a>
        </li>
        <li class="nav-item">
-         <a class="nav-link" href="#">
+         <a class="nav-link" href="productList.do">
            <span data-feather="file"></span>
-           Boards
+           Products
          </a>
        </li>
        <li class="nav-item">
          <a class="nav-link" href="#">
            <span data-feather="shopping-cart"></span>
-           Products
+           Boards
          </a>
        </li>
        <li class="nav-item">

@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype html>
 <html lang="en">
   <head>
@@ -10,6 +9,9 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.0.1">
     <title>eunjinkoh-Products</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
+
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
 
@@ -31,7 +33,7 @@
     </style>
     <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
-    <link href="css/shopping.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/shopping.css">
   </head>
   <body>
     <!-- header------------------------------ -->
@@ -62,35 +64,51 @@
 
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
         <h2 style="margin-top: 50px;">상품관리</h2>
-        <h4>상품목록</h4>
-        <a href="ProductServlet?command=product_insert_form_action">상품등록</a>
-        <div class="table-responsive">
-          <table class="table table-sm">
-            <thead>
-              <tr style="text-align: center;">
-                <th>상품코드</th>
-                <th>상품명</th>
-                <th>상품가격</th>
-                <th>가능</th>
-              </tr>
-             </thead>
-             <tbody>
-	            <c:forEach var="product" items="${productList}">
-	              <tr style="text-align: center;">
-	                <td>${product.product_code}</td>
-	                <td>${product.product_name}</td>
-	                <td>${product.product_price}원</td>
-	                <td>
-						<a href="productUpdate.do?code=${product.product_code}">상품수정</a>
-						<a href="productUpdate.do?code=${product.product_code}">상품삭제</a>
+        <h4>상품등록</h4>
+        <span style="display:block; border-bottom: 1px solid #1f4e5f; margin-bottom: 20px;"></span>
+		<form method="post" enctype="multipart/form-data" name="frm">
+			<table>
+				<tr> 
+					<th>
+						상품명				
+					</th>
+					<td>
+						<input type="text" name="name" size="80">
 					</td>
-	              </tr>
-	            </c:forEach>
-	         </tbody>
-          </table>
-        </div>
+				</tr>
+				<tr> 
+					<th>
+						가 격				
+					</th>
+					<td>
+						<input type="text" name="price">원
+					</td>
+				</tr>
+				<tr> 
+					<th>
+						사 진				
+					</th>
+					<td>
+						<input type="file" name="pictureurl"><br>
+						(주의사항 : 이미지를 변경하고자 할때만 선택하시오)
+					</td>
+				</tr>
+				<tr> 
+					<th>
+						설 명				
+					</th>
+					<td>
+						<textarea cols="80" rows="10" name="description"></textarea>
+					</td>
+				</tr>
+			</table>
+			<br>
+			<input type="submit" value="등록" onclick="return productCheck()" class="inputcss">
+			<input type="reset" value="다시작성" class="inputcss">
+			<input type="button" value="목록" onclick="location.href='productList.do'" class="inputcss">
+		</form>
       </main>
     </div>
-  	</div>
+  </div>
   </body>
 </html>

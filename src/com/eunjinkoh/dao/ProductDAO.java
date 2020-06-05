@@ -46,4 +46,25 @@ public class ProductDAO {
 		}
 		return list;
 	}
+	
+	/* ------------------ 상품등록 -----------------------*/
+	public void insertProduct(ProductVO pVo) {
+		String sql = "INSERT INTO product VALUES (product_seq.nextval, ?, ?, ?, ?)";
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, pVo.getProduct_name());
+			pstmt.setInt(2, pVo.getProduct_price());
+			pstmt.setString(3, pVo.getProduct_pictureurl());
+			pstmt.setString(4, pVo.getProduct_description());
+			pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
+	}
 }

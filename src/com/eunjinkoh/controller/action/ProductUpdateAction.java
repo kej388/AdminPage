@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.eunjinkoh.dao.ProductDAO;
 import com.eunjinkoh.dto.ProductVO;
 
-public class ProductInsertAction implements Action{
+public class ProductUpdateAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request,
@@ -22,10 +22,12 @@ public class ProductInsertAction implements Action{
 		pVo.setProduct_price(Integer.parseInt(request.getParameter("price")));
 		pVo.setProduct_pictureurl(request.getParameter("pictureurl"));
 		pVo.setProduct_description(request.getParameter("description"));
+		pVo.setProduct_code(Integer.parseInt(request.getParameter("code")));
 		
-		pDao.insertProduct(pVo);
+		pDao.updateProduct(pVo);
 		
 		response.sendRedirect("/AdminPage/ProductServlet?command=product_list_action");
+		
 	}
 
 }

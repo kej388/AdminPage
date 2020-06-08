@@ -34,6 +34,7 @@
     <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
     <link rel="stylesheet" href="css/shopping.css">
+    <script type="text/javascript" src="script/script.js"></script>
   </head>
   <body>
     <!-- header------------------------------ -->
@@ -44,29 +45,15 @@
     <div class="row">
     
       <!-- sidebarMenu------------------------------ -->
-		<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse" style="background-color: #f4f7f7;">
-		   <div class="sidebar-sticky pt-3">
-		     <ul class="nav flex-column">
-		       <li class="nav-item">
-		         <a class="nav-link " href="ProductServlet?command=dashboard_action">
-		           <span data-feather="home"></span>
-		           Dashboard <span class="sr-only">(current)</span>
-		         </a>
-		         <a class="nav-link active" href="ProductServlet?command=product_list_action">
-		           <span data-feather="file"></span>
-		           Products
-		         </a>
-		       </li>
-		     </ul>
-		   </div>
-		</nav>
+		<jsp:include page="nav.jsp"></jsp:include>
       <!-- sidebarMenu -->
 
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
         <h2 style="margin-top: 50px;">상품관리</h2>
         <h4>상품등록</h4>
         <span style="display:block; border-bottom: 1px solid #1f4e5f; margin-bottom: 20px;"></span>
-		<form method="post" enctype="multipart/form-data" name="frm">
+		<form method="post" name="frm" action="ProductServlet">
+			<input type="hidden" name="command" value="product_insert">
 			<table>
 				<tr> 
 					<th>
@@ -105,7 +92,7 @@
 			<br>
 			<input type="submit" value="등록" onclick="return productCheck()" class="inputcss">
 			<input type="reset" value="다시작성" class="inputcss">
-			<input type="button" value="목록" onclick="location.href='productList.do'" class="inputcss">
+			<input type="button" value="목록" onclick="location.href='ProductServlet?command=product_list_action'" class="inputcss">
 		</form>
       </main>
     </div>

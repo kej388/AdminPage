@@ -67,4 +67,79 @@ public class ProductDAO {
 			DBManager.close(conn, pstmt);
 		}
 	}
+	
+	/* 해당하는 글 번호 */
+	public ProductVO oneSelectProduct(String code) {
+		String sql = "SELECT * FROM product WHERE product_code=?";
+		
+		ProductVO pVo = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, code);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				pVo = new ProductVO();
+				pVo.setProduct_code(rs.getInt("product_code"));
+				pVo.setProduct_name(rs.getString("product_name"));
+				pVo.setProduct_price(rs.getInt("product_price"));
+				pVo.setProduct_pictureurl(rs.getString("product_pictureurl"));
+				pVo.setProduct_description(rs.getString("product_description"));
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		
+		
+		return pVo;
+	}
+	
+	/* -----------------상품수정-------------------------*/
+	public void updateProduct(ProductVO pVo) {
+		String sql = "UPDATE product SET product_name=?, product_price=?"
+				+ ", product_pictureurl=?, product_description=? WHERE product_code = ?";
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, pVo.getProduct_name());
+			pstmt.setInt(2, pVo.getProduct_price());
+			pstmt.setString(3, pVo.getProduct_pictureurl());
+			pstmt.setString(4, pVo.getProduct_description());
+			pstmt.setInt(5, pVo.getProduct_code());
+			pstmt.executeUpdate();
+		}	catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
+	}
+	
+	/* -----------------상품삭제-------------------------*/
+	public void deleteProduct(String code) {
+		String sql = "DELETE * FROM product WHERE product_code=?";
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, code);
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
+	}
 }

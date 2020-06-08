@@ -2,8 +2,11 @@ package com.eunjinkoh.controller;
 
 import com.eunjinkoh.controller.action.Action;
 import com.eunjinkoh.controller.action.DashboardAction;
+import com.eunjinkoh.controller.action.ProductInsertAction;
 import com.eunjinkoh.controller.action.ProductInsertFormAction;
 import com.eunjinkoh.controller.action.ProductListAction;
+import com.eunjinkoh.controller.action.ProductUpdateAction;
+import com.eunjinkoh.controller.action.ProductUpdateFormAction;
 
 public class ActionFactory {
 	private static ActionFactory instance = new ActionFactory();
@@ -26,6 +29,12 @@ public class ActionFactory {
 			action = new DashboardAction();
 		} else if(command.equals("product_insert_form_action")) {
 			action = new ProductInsertFormAction();
+		} else if(command.equals("product_insert")) {
+			action = new ProductInsertAction();
+		} else if(command.equals("product_update_form")) {
+			action = new ProductUpdateFormAction();
+		} else if(command.equals("product_update")) {
+			action = new ProductUpdateAction();
 		}
 		
 		return action;

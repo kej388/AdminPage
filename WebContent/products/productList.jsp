@@ -42,28 +42,12 @@
     <div class="row">
     
       <!-- sidebarMenu------------------------------ -->
-		<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse" style="background-color: #f4f7f7;">
-		   <div class="sidebar-sticky pt-3">
-		     <ul class="nav flex-column">
-		       <li class="nav-item">
-		         <a class="nav-link " href="ProductServlet?command=dashboard_action">
-		           <span data-feather="home"></span>
-		           Dashboard <span class="sr-only">(current)</span>
-		         </a>
-		         <a class="nav-link active" href="ProductServlet?command=product_list_action">
-		           <span data-feather="file"></span>
-		           Products
-		         </a>
-		       </li>
-		     </ul>
-		   </div>
-		</nav>
+		<jsp:include page="nav.jsp"/>
       <!-- sidebarMenu -->
 
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
         <h2 style="margin-top: 50px;">상품관리</h2>
         <h4>상품목록</h4>
-        <a href="ProductServlet?command=product_insert_form_action">상품등록</a>
         <div class="table-responsive">
           <table class="table table-sm">
             <thead>
@@ -81,13 +65,14 @@
 	                <td>${product.product_name}</td>
 	                <td>${product.product_price}원</td>
 	                <td>
-						<a href="productUpdate.do?code=${product.product_code}">상품수정</a>
+						<a href="ProductServlet?command=product_update_form&code=${product.product_code}">상품수정</a>
 						<a href="productUpdate.do?code=${product.product_code}">상품삭제</a>
 					</td>
 	              </tr>
 	            </c:forEach>
 	         </tbody>
           </table>
+          <a href="ProductServlet?command=product_insert_form_action">상품등록</a>
         </div>
       </main>
     </div>

@@ -26,3 +26,10 @@ function productCheck() {
 		}
 	}
 }
+
+function deleteCheck() {
+	var check = confirm("삭제하시겠습니까?");
+	if(check == false) {
+		return false;
+	}
+}

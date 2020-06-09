@@ -2,6 +2,8 @@ package com.eunjinkoh.controller;
 
 import com.eunjinkoh.controller.action.Action;
 import com.eunjinkoh.controller.action.DashboardAction;
+import com.eunjinkoh.controller.action.ProductDeleteAction;
+import com.eunjinkoh.controller.action.ProductDeleteFormAction;
 import com.eunjinkoh.controller.action.ProductInsertAction;
 import com.eunjinkoh.controller.action.ProductInsertFormAction;
 import com.eunjinkoh.controller.action.ProductListAction;
@@ -35,6 +37,10 @@ public class ActionFactory {
 			action = new ProductUpdateFormAction();
 		} else if(command.equals("product_update")) {
 			action = new ProductUpdateAction();
+		} else if(command.equals("product_delete_form")) {
+			action = new ProductDeleteFormAction();
+		} else if(command.equals("product_delete")) {
+			action = new ProductDeleteAction();
 		}
 		
 		return action;

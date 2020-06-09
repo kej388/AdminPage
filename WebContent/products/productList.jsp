@@ -66,7 +66,7 @@
 	                <td>${product.product_price}원</td>
 	                <td>
 						<a href="ProductServlet?command=product_update_form&code=${product.product_code}">상품수정</a>
-						<a href="productUpdate.do?code=${product.product_code}">상품삭제</a>
+						<a href="ProductServlet?command=product_delete_form&code=${product.product_code}">상품삭제</a>
 					</td>
 	              </tr>
 	            </c:forEach>

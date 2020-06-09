@@ -126,7 +126,7 @@ public class ProductDAO {
 	
 	/* -----------------상품삭제-------------------------*/
 	public void deleteProduct(String code) {
-		String sql = "DELETE * FROM product WHERE product_code=?";
+		String sql = "DELETE product WHERE product_code=?";
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -136,6 +136,7 @@ public class ProductDAO {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, code);
 			
+			pstmt.executeUpdate();
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {

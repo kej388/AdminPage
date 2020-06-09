@@ -52,7 +52,7 @@
         <h2 style="margin-top: 50px;">상품관리</h2>
         <h4>상품등록</h4>
         <span style="display:block; border-bottom: 1px solid #1f4e5f; margin-bottom: 20px;"></span>
-		<form method="post" name="frm" action="ProductServlet">
+		<form enctype="multipart/form-data" method="post" name="frm" action="ProductServlet">
 			<input type="hidden" name="command" value="product_insert">
 			<table>
 				<tr> 

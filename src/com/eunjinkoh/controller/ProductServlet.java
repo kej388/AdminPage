@@ -1,7 +1,9 @@
 package com.eunjinkoh.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,6 +38,17 @@ public class ProductServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		
+		String savePath = "upload";
+		int uploadFileSizeLimit = 5 * 1024 * 1024;
+		String encType = "UTF-8";
+		ServletContext context = getServletContext();
+		String uploadFilePath = context.getRealPath(savePath);
+		
+		
+		
 		doGet(request, response);
 	}
 

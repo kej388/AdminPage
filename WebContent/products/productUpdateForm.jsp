@@ -50,8 +50,7 @@
             <h2 style="margin-top: 50px;">상품관리</h2>
             <h4>상품 수정</h4>
             <span style="display:block; border-bottom: 1px solid #1f4e5f; margin-bottom: 20px;"></span>
-            <form method="post" name="frm" action="ProductServlet" enctype="mulipart/form-data">
-            	<input type="hidden" name="command" value="product_update">
+            <form method="post" name="frm" action="ProducetUpdate" enctype="multipart/form-data">
                 <input type="hidden" name="code" value="${product.product_code}">
                 <input type="hidden" name="nonmakeImg" value="${product.product_pictureurl}">
                 <table>

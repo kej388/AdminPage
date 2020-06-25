@@ -55,6 +55,7 @@
 		           <span data-feather="file"></span>
 		           Products
 		         </a>
+		         <a class="nav-link" href="MovieServlet?command=movie_list">Movie</a>
 		       </li>
 		     </ul>
 		   </div>

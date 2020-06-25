@@ -8,12 +8,16 @@
            <span data-feather="home"></span>
            Dashboard <span class="sr-only">(current)</span>
          </a>
-         <a class="nav-link active" href="ProductServlet?command=product_list_action">
+         <a class="nav-link" href="ProductServlet?command=product_list_action">
            <span data-feather="file"></span>
            Products
          </a>
-         <a class="nav-link" href="MovieServlet?command=movie_list">Movie</a>
+         <a class="nav-link active" href="MovieServlet?command=product_list_action">
+           <span data-feather="file"></span>
+           Movie
+       </a>
        </li>
+       
      </ul>
    </div>
 </nav>
